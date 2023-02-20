@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSV File Display</title>
+  </head>
+  <body>
+    <h1>CSV File Display</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Column 1</th>
+          <th>Column 2</th>
+          <th>Column 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+          // Open the CSV file for reading
+          $file = fopen("example.csv", "r");
+
+          // Loop through each row in the CSV file and output it as an HTML table row
+          while (($data = fgetcsv($file)) !== false) {
+            echo "<tr>";
+            foreach ($data as $cell) {
+              echo "<td>" . htmlspecialchars($cell) . "</td>";
+            }
+            echo "</tr>";
+          }
+
+          // Close the CSV file
+          fclose($file);
+        ?>
+      </tbody>
+    </table>
+  </body>
+</html>
