@@ -16,7 +16,7 @@
       <tbody>
         <?php
           // Open the CSV file for reading
-          $file = fopen("example.csv", "r");
+          $file = fopen("GLOBAL_FIREPOWER", "r");
 
           // Loop through each row in the CSV file and output it as an HTML table row
           while (($data = fgetcsv($file)) !== false) {
